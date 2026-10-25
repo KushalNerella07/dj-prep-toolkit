@@ -1,0 +1,22 @@
+name: Bug report
+description: Report an installation or copied-library test problem
+body:
+  - type: markdown
+    attributes:
+      value: Do not attach music, library databases, account configuration, tokens, or unredacted private logs.
+  - type: input
+    id: versions
+    attributes:
+      label: Windows, Python and Rekordbox versions
+    validations:
+      required: true
+  - type: textarea
+    id: steps
+    attributes:
+      label: Reproduction steps and expected behavior
+    validations:
+      required: true
+  - type: textarea
+    id: error
+    attributes:
+      label: Redacted error output

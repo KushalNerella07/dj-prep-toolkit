@@ -1,0 +1,12 @@
+{
+  "sources/CueGen-source.zip": "ba1c7e0fab35bf25a9e82b34470934d6480e01c45ebf0b376874b598ea10df68",
+  "sources/CueGen.1.0.37.win-x64.exe.zip": "765db1aa2af4cc501a5e64b9dcd65d4733e885bc46cbf4016bd863ba0cbd8a72",
+  "sources/local-mcp-changes.patch": "041b6576dbdb11b5b82e3e3ab93041288ba3aceeb6ae00b09000c2e91bbc52f2",
+  "sources/rekordbox-mcp-base.zip": "01b5b97bb9d65ff8e8ae9db001f399c3995807f36d2396885286e23b198fa8b4",
+  "overlay/rekordbox_mcp/cue_tools.py": "5e1233ab88cdfa42c2fc6894b05dacdd21b99ee35285d858631dfed0c77cc5d2",
+  "overlay/rekordbox_mcp/database.py": "c09f368b09f3ee99839a27520a129b5a9fdf75e997fffdf40d26a659d54ea3f4",
+  "overlay/rekordbox_mcp/server.py": "e1126744e4cae89cc9bacb1e21f379a789db69350b45e8fa5db94b3f8d67a603",
+  "licenses/CueGen-LICENSE": "9f306be97012fb21a52808355e0c27f0147fb59e5f608e63f1a283d48ea20b5a",
+  "licenses/rekordbox-mcp-LICENSE": "f53998c39c015ce916e2d1db973b9e5f05ebc4f8ea25a578eb57233e76de1f6c",
+  "requirements-windows.txt": "4d62d151a35e1cec27440054953d218a7ba93c70c020e1c57d73bed4df51558f"
+}

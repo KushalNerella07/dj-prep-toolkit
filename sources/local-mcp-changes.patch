@@ -1,0 +1,66 @@
+diff --git a/rekordbox_mcp/database.py b/rekordbox_mcp/database.py
+index c5b5eea..f44867e 100644
+--- a/rekordbox_mcp/database.py
++++ b/rekordbox_mcp/database.py
+@@ -13,7 +13,7 @@ from pathlib import Path
+ from typing import Optional, List, Dict, Any
+ from datetime import datetime
+ 
+-from pyrekordbox import Rekordbox6Database
++from pyrekordbox import Rekordbox6Database, get_config
+ from loguru import logger
+ 
+ from .models import (
+@@ -80,6 +80,13 @@ class RekordboxDatabase:
+ 
+     def _detect_database_path(self) -> Path:
+         """Auto-detect the rekordbox database location based on OS."""
++        # Use the library location from rekordbox's own configuration, including
++        # relocated libraries. The Pioneer parent does not contain playlist XML
++        # or analysis data, both of which pyrekordbox resolves relative to db_dir.
++        rb_config = get_config("rekordbox7") or get_config("rekordbox6")
++        if rb_config.get("db_path"):
++            return Path(rb_config["db_path"]).parent
++
+         if os.name == "nt":  # Windows
+             base_path = Path.home() / "AppData" / "Roaming" / "Pioneer"
+         elif sys.platform == "darwin":  # macOS
+diff --git a/rekordbox_mcp/server.py b/rekordbox_mcp/server.py
+index b249fe3..8818536 100644
+--- a/rekordbox_mcp/server.py
++++ b/rekordbox_mcp/server.py
+@@ -13,6 +13,7 @@ from loguru import logger
+ from pydantic import BaseModel, Field
+ 
+ from .database import RekordboxDatabase
++from .cue_tools import inspect_track_analysis
+ from .models import (
+     Track,
+     Playlist,
+@@ -31,6 +32,17 @@ db: Optional[RekordboxDatabase] = None
+ _db_initialized = False
+ 
+ 
++@mcp.tool(annotations={"readOnlyHint": True})
++async def get_track_analysis(track_id: str) -> Dict[str, Any]:
++    """Read a track's saved cues, numerical beat grid, and analyzed phrases.
++
++    This reads local database and ANLZ files. It does not modify the library,
++    play audio, or use screenshots. Phrase kind values are raw Rekordbox codes.
++    """
++    await ensure_database_connected()
++    return await asyncio.to_thread(inspect_track_analysis, db.db, track_id)
++
++
+ class ServerConfig(BaseModel):
+     """Server configuration model."""
+ 
+@@ -975,7 +987,7 @@ def main():
+     # Configure logging
+     logger.remove()
+     logger.add(
+-        sink=lambda msg: print(msg, end=""),
++        sink=sys.stderr,
+         format="<green>{time:YYYY-MM-DD HH:mm:ss}</green> | <level>{level: <8}</level> | {message}",
+         level="INFO",
+     )

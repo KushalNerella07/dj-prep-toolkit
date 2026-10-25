@@ -1,0 +1,31 @@
+{
+  "created": "2026-10-25",
+  "platform": "Windows x64 / Python 3.12",
+  "repositories": [
+    {
+      "url": "https://github.com/davehenke/rekordbox-mcp",
+      "commit": "d8dce67700911b6bef84b25c5f93ae07f200a1c5"
+    },
+    {
+      "url": "https://github.com/mganss/CueGen",
+      "commit": "eac34c8c1f007599261f45127095717e0f4abd01"
+    }
+  ],
+  "cuegen_release": "v1.0.37",
+  "customizations": [
+    "stderr logging",
+    "library path detection",
+    "get_track_analysis extension",
+    "portable launcher and verification",
+    "portable short-blends skill"
+  ],
+  "excluded": [
+    "music",
+    "Rekordbox database and analysis files",
+    "Codex auth/config",
+    "account credentials",
+    "machine-specific old cue plans",
+    "virtual environments",
+    "Python runtime"
+  ]
+}

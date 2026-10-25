@@ -1,0 +1,7 @@
+Set up DJ Prep Toolkit on this Windows laptop. Read README.md, docs/windows-setup.md and manifest.json first. Discover local software and paths; do not assume any old track IDs, library, settings or music files exist here. This release supports Windows x64 and Python 3.12 only.
+
+Ensure official Python 3.12 x64 and Rekordbox are installed. Help me initialize a test Rekordbox library and analyze test tracks if it is empty; do not control the Rekordbox UI. Then run setup_windows.py with --register-mcp --install-skill, preserving unrelated Codex settings. Confirm the current skill installation directory for this Codex version, and start a fresh chat/restart if native tools are not refreshed.
+
+Run verify_connection.py --library using the new venv and verify that Codex itself sees the tools, including get_track_analysis. Use $rekordbox-short-blends to inspect the current test library and propose a short transition. Leave my playlists, cues, audio and playback unchanged.
+
+Next test CueGen only through stage_cuegen.py with a freshly discovered analyzed test-track ID. Verify its entire copied-library diff and report before calling it successful. Do not apply generated cues to the live library yet. Explain which parts came from the two public repos, which parts are our custom extensions/skill, and what was actually tested on this laptop. Do not copy old machine-specific scripts or infer BPM/key/vocal timestamps from titles.
