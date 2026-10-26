@@ -42,7 +42,7 @@ Finish: “The tools handle connection and preparation; I still listen, choose t
 
 - Rekordbox MCP: https://github.com/davehenke/rekordbox-mcp
 - CueGen: https://github.com/mganss/CueGen
-- Our portable skill + local additions: link this toolkit repository when publishing the video.
+- Our portable skill + local additions: https://github.com/KushalNerella07/dj-prep-toolkit
 - Setup references: https://developers.openai.com/codex/mcp and https://developers.openai.com/codex/skills
 
 Optional follow-up: explain the separate local drum-separation workflow. The clean Jennie loop came from an audio edit using an estimated drum stem, not from moving a cue point. Do not present AI-generated BPM, key or timestamps from titles as measured facts.

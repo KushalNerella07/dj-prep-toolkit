@@ -18,6 +18,15 @@ This is an independent toolkit. It is not affiliated with AlphaTheta/Pioneer, Op
 
 Install **Codex**, **Rekordbox**, and **64-bit Python 3.12** on Windows. Initialize a test library in Rekordbox, import a track, and analyze it. Then clone or download this repository and open PowerShell in its root:
 
+If Git is installed:
+
+```powershell
+git clone https://github.com/KushalNerella07/dj-prep-toolkit.git
+cd dj-prep-toolkit
+```
+
+Or use GitHub's **Code -> Download ZIP** and extract the source. From the project root, run:
+
 ```powershell
 py -3.12 setup_windows.py --register-mcp --install-skill
 ```
